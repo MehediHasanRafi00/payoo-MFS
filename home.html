@@ -25,12 +25,14 @@
   <body class="bg-[#f4f5f7]">
     <div class="bg-white max-w-lg mx-auto rounded-b-3xl">
       <nav
-        class="flex justify-between items-center border-b-1 border-[#0808081a] "
+        class="flex justify-between items-center border-b-1 border-[#0808081a]"
       >
         <div class="flex p-6">
           <img class="h-[50px]" src="./assets/Group.png" alt="" />
           <div class="ml-2">
-            <h2 class="font-bold">$<span id="available-balance">45000</span></h2>
+            <h2 class="font-bold">
+              $<span id="available-balance">45000</span>
+            </h2>
             <p class="text-[#08080880]">Available Balance</p>
           </div>
         </div>
@@ -51,27 +53,42 @@
         </p>
       </div>
       <div class="mt-2 grid grid-cols-3 gap-4 p-6">
-        <div class="text-center p-5 border-1 border-[#0808081a] rounded-xl">
+        <div
+          id="add-btn"
+          class="text-center px-2 py-5 border-1 border-[#0808081a] rounded-xl"
+        >
           <img class="mx-auto" src="./assets/wallet1.png" alt="" />
           <h2>Add Money</h2>
         </div>
-        <div class="text-center p-5 border-1 border-[#0808081a] rounded-xl">
+        <div
+          id="cash-out-btn"
+          class="text-center px-2 py-5 border-1 border-[#0808081a] rounded-xl"
+        >
           <img class="mx-auto" src="./assets/send1.png" alt="" />
           <h2>Cashout</h2>
         </div>
-        <div class="text-center p-5 border-1 border-[#0808081a] rounded-xl">
+        <div
+          id="transfer-money-btn"
+          class="text-center px-2 py-5 border-1 border-[#0808081a] rounded-xl"
+        >
           <img class="mx-auto" src="./assets/money1.png" alt="" />
           <h2>Transfer Money</h2>
         </div>
-        <div class="text-center p-5 border-1 border-[#0808081a] rounded-xl">
+        <div
+          class="text-center px-2 py-5 border-1 border-[#0808081a] rounded-xl"
+        >
           <img class="mx-auto" src="./assets/bonus1.png" alt="" />
           <h2>Get Bonus</h2>
         </div>
-        <div class="text-center p-5 border-1 border-[#0808081a] rounded-xl">
+        <div
+          class="text-center px-2 py-5 border-1 border-[#0808081a] rounded-xl"
+        >
           <img class="mx-auto" src="./assets/purse1.png" alt="" />
           <h2>Pay Bill</h2>
         </div>
-        <div class="text-center p-5 border-1 border-[#0808081a] rounded-xl">
+        <div
+          class="text-center px-2 py-5 border-1 border-[#0808081a] rounded-xl"
+        >
           <img class="mx-auto" src="./assets/transaction1.png" alt="" />
           <h2>Transactions</h2>
         </div>
@@ -79,37 +96,73 @@
     </div>
     <div class="all-form-secson max-w-lg mx-auto p-6">
       <!-- add money -->
-      <div>
+      <div id="add-money-parent">
         <h1 class="font-bold text-lg mb-2">Add Money</h1>
-        <form action="" class="bg-white p-6  rounded-3xl ">
+        <form action="" class="bg-white p-6 rounded-3xl">
           <div>
             <label class="font-medium text-[#080808b3]">Select A Bank</label>
-            <br>
-            <select id="bank" class="select bg-[#f4f5f7] mt-3 rounded-3xl w-full">
-              <option >Select back</option>
+            <br />
+            <select
+              id="bank"
+              class="select bg-[#f4f5f7] mt-3 rounded-3xl w-full"
+            >
+              <option>Select back</option>
               <option>AB bank</option>
               <option>IFIC Bank</option>
               <option>Dutch Bangla Bank</option>
             </select>
           </div>
           <div class="mt-4">
-            <label class="font-medium text-[#080808b3]"  for="">Bank Account Number</label>
-            <br>
-            <input id="account-number" type="text" placeholder="Enter 11 digit account number" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" />
+            <label class="font-medium text-[#080808b3]" for=""
+              >Bank Account Number</label
+            >
+            <br />
+            <input
+              id="account-number"
+              type="text"
+              placeholder="Enter 11 digit account number"
+              class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full"
+            />
           </div>
           <div class="mt-4">
-            <label class="font-medium text-[#080808b3]"  for="">Amount to Add</label>
-            <br>
-            <input id="add-amount" type="text" placeholder="Add Amount to withdraw" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" />
+            <label class="font-medium text-[#080808b3]" for=""
+              >Amount to Add</label
+            >
+            <br />
+            <input
+              id="add-amount"
+              type="text"
+              placeholder="Add Amount to withdraw"
+              class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full"
+            />
           </div>
           <div class="mt-4">
-            <label class="font-medium text-[#080808b3]"  for="">Pin Number</label>
-            <br>
-            <input id="add-pin" type="text" placeholder="Enter 4 digit pin number" class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full" />
+            <label class="font-medium text-[#080808b3]" for=""
+              >Pin Number</label
+            >
+            <br />
+            <input
+              id="add-pin"
+              type="text"
+              placeholder="Enter 4 digit pin number"
+              class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full"
+            />
           </div>
-          <button  id="add-money-btn" class="btn bg-[#0874F2] mt-4 w-full rounded-3xl text-white">Add Money</button>
-          
+          <button
+            id="add-money-btn"
+            class="btn bg-[#0874F2] mt-4 w-full rounded-3xl text-white"
+          >
+            Add Money
+          </button>
         </form>
+      </div>
+      <!-- cash out  -->
+      <div id="cash-out-parent" style="display: none">
+        <h1 class="font-bold text-lg mb-2">Cash Out</h1>
+      </div>
+      <!-- transfer money -->
+      <div id="transfer-money-parent" style="display: none">
+        <h1 class="font-bold text-lg mb-2">Transfer Money</h1>
       </div>
     </div>
     <script src="./home.js"></script>
