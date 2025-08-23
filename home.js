@@ -1,4 +1,4 @@
-// add money functionality
+// add money feature
 
 const validPin = 1234;
 document
@@ -34,6 +34,35 @@ document
       totalNewAvailableBalance;
   });
 
+// cash out money feature
+document.getElementById("withdraw-btn").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const agentNumber = document.getElementById("agent-number").value;
+
+  const pin = parseInt(document.getElementById("withdraw-pin").value);
+
+  if (agentNumber.length < 11) {
+    alert("Please provide valid account number");
+    return;
+  }
+  if (pin !== validPin) {
+    alert("Please provide valid pin number");
+    return;
+  }
+
+  const amount = parseInt(document.getElementById("withdraw-amount").value);
+
+  const availableBalance = parseInt(
+    document.getElementById("available-balance").innerText
+  );
+
+  const totalNewAvailableBalance = availableBalance - amount;
+
+  document.getElementById("available-balance").innerText =
+    totalNewAvailableBalance;
+});
+
 // toggling feature
 
 document.getElementById("add-btn").addEventListener("click", function () {
@@ -46,8 +75,10 @@ document.getElementById("cash-out-btn").addEventListener("click", function () {
   document.getElementById("transfer-money-parent").style.display = "none";
   document.getElementById("cash-out-parent").style.display = "block";
 });
-document.getElementById("transfer-money-btn").addEventListener("click", function () {
-  document.getElementById("add-money-parent").style.display = "none";
-  document.getElementById("cash-out-parent").style.display = "none";
-  document.getElementById("transfer-money-parent").style.display = "block";
-});
+document
+  .getElementById("transfer-money-btn")
+  .addEventListener("click", function () {
+    document.getElementById("add-money-parent").style.display = "none";
+    document.getElementById("cash-out-parent").style.display = "none";
+    document.getElementById("transfer-money-parent").style.display = "block";
+  });
