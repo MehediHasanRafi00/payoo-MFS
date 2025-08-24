@@ -208,6 +208,48 @@
       <!-- transfer money -->
       <div class="form" id="transfer-money-parent" style="display: none">
         <h1 class="font-bold text-lg mb-2">Transfer Money</h1>
+        <form action="" class="bg-white p-6 rounded-3xl">
+          <div class="mt-4">
+            <label class="font-medium text-[#080808b3]" for=""
+              >User Account Number</label
+            >
+            <br />
+            <input
+              id="user-number"
+              type="text"
+              placeholder="Enter 11 digit number"
+              class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full"
+            />
+          </div>
+          <div class="mt-4">
+            <label class="font-medium text-[#080808b3]" for="">Amount</label>
+            <br />
+            <input
+              id="transfer-amount"
+              type="text"
+              placeholder="Enter amount to transfer"
+              class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full"
+            />
+          </div>
+          <div class="mt-4">
+            <label class="font-medium text-[#080808b3]" for=""
+              >Pin Number</label
+            >
+            <br />
+            <input
+              id="transfer-pin"
+              type="text"
+              placeholder="Enter 4 digit pin number"
+              class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full"
+            />
+          </div>
+          <button
+            id="send-btn"
+            class="btn bg-[#0874F2] mt-4 w-full rounded-3xl text-white"
+          >
+            Send Now
+          </button>
+        </form>
       </div>
       <!-- get bonus -->
       <div class="form" id="get-bonus-parent" style="display: none">
@@ -223,9 +265,7 @@
           <h1 class="font-bold text-lg mb-2">Transaction History</h1>
           <p class="text-[#08080880] text-sm">View All</p>
         </div>
-        <div id="transactions-container" class="mt-4 ">
-
-        </div>
+        <div id="transactions-container" class="mt-4"></div>
       </div>
     </div>
     <script src="./home.js"></script>

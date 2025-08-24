@@ -56,6 +56,11 @@ document
 
     const amount = getInputValueNumber("add-amount");
 
+    if (amount <= 0) {
+      alert("invalid amount");
+      return;
+    }
+
     const pin = getInputValueNumber("add-pin");
 
     if (accountNumber.length < 11) {
@@ -79,8 +84,6 @@ document
       date: new Date().toLocaleTimeString(),
     };
     transactionsData.push(data);
-
-    console.log(transactionsData);
   });
 
 // cash out money feature
@@ -104,31 +107,72 @@ document.getElementById("withdraw-btn").addEventListener("click", function (e) {
 
   const availableBalance = getInnerText("available-balance");
 
+  if (amount <= 0 || amount > availableBalance) {
+    alert("invalid amount");
+    return;
+  }
+
   const totalNewAvailableBalance = availableBalance - amount;
 
   setInnerText(totalNewAvailableBalance);
 
   const data = {
-      name: "Cash Out",
-      date: new Date().toLocaleTimeString(),
-    };
-    transactionsData.push(data);
-
-    console.log(transactionsData);
+    name: "Cash Out",
+    date: new Date().toLocaleTimeString(),
+  };
+  transactionsData.push(data);
 });
 
+//transfer money feature
+document.getElementById("send-btn").addEventListener("click", function (e) {
+  e.preventDefault();
 
-//
+  const userNumber = getInputValue("user-number");
 
-document.getElementById("transactions-btn")
-.addEventListener("click", function(){
-  
-  const transactionsContainer = document.getElementById("transactions-container")
-  transactionsContainer.innerText = ""
+  const pin = getInputValueNumber("transfer-pin");
 
-  for(const data of transactionsData){
-    const div = document.createElement("div")
-    div.innerHTML = `
+  if (userNumber.length < 11) {
+    alert("Please provide valid account number");
+    return;
+  }
+  if (pin !== validPin) {
+    alert("Please provide valid pin number");
+    return;
+  }
+
+  const amount = getInputValueNumber("transfer-amount");
+
+  const availableBalance = getInnerText("available-balance");
+
+  if (amount <= 0 || amount > availableBalance) {
+    alert("invalid amount");
+    return;
+  }
+
+  const totalNewAvailableBalance = availableBalance - amount;
+
+  setInnerText(totalNewAvailableBalance);
+
+  const data = {
+    name: "Transfer Money",
+    date: new Date().toLocaleTimeString(),
+  };
+  transactionsData.push(data);
+});
+
+// transactions feature
+
+document
+  .getElementById("transactions-btn")
+  .addEventListener("click", function () {
+    const transactionsContainer = document.getElementById(
+      "transactions-container"
+    );
+    transactionsContainer.innerText = "";
+
+    for (const data of transactionsData) {
+      const div = document.createElement("div");
+      div.innerHTML = `
               <div class="p-4 bg-white rounded-xl border-1 border-[#0808081a] text-[#080808b3] flex justify-between items-center mb-3">
             <div class="flex items-center gap-2.5">
               <div class="p-2.5 rounded-full bg-[#f4f5f7]">
@@ -141,10 +185,10 @@ document.getElementById("transactions-btn")
             </div>
             <i class="fa-solid fa-ellipsis-vertical"></i>
           </div>
-    `
-    transactionsContainer.appendChild(div)
-  }
-})
+    `;
+      transactionsContainer.appendChild(div);
+    }
+  });
 
 // toggling feature
 
