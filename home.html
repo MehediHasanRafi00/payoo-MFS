@@ -278,6 +278,64 @@
       <!-- pay bill -->
       <div class="form" id="pay-bill-parent" style="display: none">
         <h1 class="font-bold text-lg mb-2">Pay Bill</h1>
+
+                <form action="" class="bg-white p-6 rounded-3xl">
+          <div>
+            <label class="font-medium text-[#080808b3]">Select To Pay</label>
+            <br />
+            <select
+              id="bank-Pay"
+              class="select bg-[#f4f5f7] mt-3 rounded-3xl w-full"
+            >
+              <option>Select back</option>
+              <option>AB bank</option>
+              <option>IFIC Bank</option>
+              <option>Dutch Bangla Bank</option>
+            </select>
+          </div>
+          <div class="mt-4">
+            <label class="font-medium text-[#080808b3]" for=""
+              >Biller Account Number</label
+            >
+            <br />
+            <input
+              id="biller-account-number"
+              type="text"
+              placeholder="Enter account number"
+              class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full"
+            />
+          </div>
+          <div class="mt-4">
+            <label class="font-medium text-[#080808b3]" for=""
+              >Amount to Pay</label
+            >
+            <br />
+            <input
+              id="pay-amount"
+              type="text"
+              placeholder="Add Amount to pay"
+              class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full"
+            />
+          </div>
+          <div class="mt-4">
+            <label class="font-medium text-[#080808b3]" for=""
+              >Pin Number</label
+            >
+            <br />
+            <input
+              id="pay-pin"
+              type="text"
+              placeholder="Enter 4 digit pin number"
+              class="input bg-[#f4f5f7] mt-3 rounded-3xl w-full"
+            />
+          </div>
+          <button
+            id="pay-btn"
+            class="btn bg-[#0874F2] mt-4 w-full rounded-3xl text-white"
+          >
+            Pay Now
+          </button>
+        </form>
       </div>
       <!-- transactions -->
       <div class="form" id="transactions-parent" style="display: none">

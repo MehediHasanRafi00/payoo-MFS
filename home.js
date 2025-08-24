@@ -178,6 +178,53 @@ document.getElementById("coupon-btn").addEventListener("click", function (e) {
   const totalNewAvailableBalance = availableBalance + 5000;
 
   setInnerText(totalNewAvailableBalance);
+
+  const data = {
+    name: "Get Bonus",
+    date: new Date().toLocaleTimeString(),
+  };
+  transactionsData.push(data);
+});
+
+// pay bill feature
+
+document.getElementById("pay-btn").addEventListener("click", function (e) {
+  e.preventDefault();
+
+  const bank = getInputValue("bank-Pay");
+  const accountNumber = getInputValue("biller-account-number");
+
+  const amount = getInputValueNumber("pay-amount");
+
+  
+
+  const pin = getInputValueNumber("pay-pin");
+
+  if (accountNumber.length < 11) {
+    alert("Please provide valid account number");
+    return;
+  }
+  if (pin !== validPin) {
+    alert("Please provide valid pin number");
+    return;
+  }
+
+  const availableBalance = getInnerText("available-balance");
+
+  if (amount <= 0 || amount > availableBalance) {
+    alert("invalid amount");
+    return;
+  }
+
+  const totalNewAvailableBalance = availableBalance - amount;
+
+  setInnerText(totalNewAvailableBalance);
+
+  const data = {
+    name: "Pay Bill",
+    date: new Date().toLocaleTimeString(),
+  };
+  transactionsData.push(data);
 });
 
 // transactions feature
