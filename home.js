@@ -45,7 +45,11 @@ function handleBtnToggle(id) {
     .getElementById(id)
     .classList.add("border-[#0874f2]", "bg-[#0874f20d]");
 }
-
+// logout 
+document.getElementById("logout-btn")
+.addEventListener("click", function(){
+  window.location.href = "./index.html"
+})
 // add money feature
 document
   .getElementById("add-money-btn")
