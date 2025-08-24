@@ -1,5 +1,7 @@
 const validPin = 1234;
 
+const validCouponCode = "MFS2025";
+
 const transactionsData = [];
 
 // functions to get input values
@@ -158,6 +160,24 @@ document.getElementById("send-btn").addEventListener("click", function (e) {
     date: new Date().toLocaleTimeString(),
   };
   transactionsData.push(data);
+});
+
+//Get Bonus feature
+
+document.getElementById("coupon-btn").addEventListener("click", function (e) {
+  e.preventDefault();
+  const couponCode = getInputValue("coupon-code");
+
+  if (couponCode !== validCouponCode) {
+    alert("invalid coupon code");
+    return;
+  }
+
+  const availableBalance = getInnerText("available-balance");
+
+  const totalNewAvailableBalance = availableBalance + 5000;
+
+  setInnerText(totalNewAvailableBalance);
 });
 
 // transactions feature
