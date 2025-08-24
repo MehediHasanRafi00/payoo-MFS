@@ -1,5 +1,7 @@
 const validPin = 1234;
 
+const transactionsData = [];
+
 // functions to get input values
 function getInputValueNumber(id) {
   return parseInt(document.getElementById(id).value);
@@ -71,6 +73,14 @@ document
     const totalNewAvailableBalance = amount + availableBalance;
 
     setInnerText(totalNewAvailableBalance);
+
+    const data = {
+      name: "Add Money",
+      date: new Date().toLocaleTimeString(),
+    };
+    transactionsData.push(data);
+
+    console.log(transactionsData);
   });
 
 // cash out money feature
@@ -97,7 +107,44 @@ document.getElementById("withdraw-btn").addEventListener("click", function (e) {
   const totalNewAvailableBalance = availableBalance - amount;
 
   setInnerText(totalNewAvailableBalance);
+
+  const data = {
+      name: "Cash Out",
+      date: new Date().toLocaleTimeString(),
+    };
+    transactionsData.push(data);
+
+    console.log(transactionsData);
 });
+
+
+//
+
+document.getElementById("transactions-btn")
+.addEventListener("click", function(){
+  
+  const transactionsContainer = document.getElementById("transactions-container")
+  transactionsContainer.innerText = ""
+
+  for(const data of transactionsData){
+    const div = document.createElement("div")
+    div.innerHTML = `
+              <div class="p-4 bg-white rounded-xl border-1 border-[#0808081a] text-[#080808b3] flex justify-between items-center mb-3">
+            <div class="flex items-center gap-2.5">
+              <div class="p-2.5 rounded-full bg-[#f4f5f7]">
+                <img class="mx-auto" src="./assets/wallet1.png" alt="" />
+              </div>
+              <div>
+                <h1 class="font-semibold">${data.name}</h1>
+                <p class="text-xs">${data.date}</p>
+              </div>
+            </div>
+            <i class="fa-solid fa-ellipsis-vertical"></i>
+          </div>
+    `
+    transactionsContainer.appendChild(div)
+  }
+})
 
 // toggling feature
 
@@ -129,8 +176,10 @@ document.getElementById("pay-bill-btn").addEventListener("click", function () {
 
   handleBtnToggle("pay-bill-btn");
 });
-document.getElementById("transactions-btn").addEventListener("click", function () {
-  handleToggle("transactions-parent");
+document
+  .getElementById("transactions-btn")
+  .addEventListener("click", function () {
+    handleToggle("transactions-parent");
 
-  handleBtnToggle("transactions-btn");
-});
+    handleBtnToggle("transactions-btn");
+  });
